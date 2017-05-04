@@ -1,0 +1,344 @@
+<html ng-app="cartaoDeCredito">
+<head>
+    <title>GreenCard</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type"text/css" href="assets/styles/bootstrap.css">
+    <script src="assets/scripts/jquery.min.js"></script>
+    <script src="assets/scripts/bootstrap.min.js"></script> 
+    <script src="assets/scripts/angular.min.js"></script> 
+
+    <script>
+    $(document).ready(function(){
+        $("#myBtn").click(function(){
+            $("#myModal").modal();
+        });
+    });
+
+    $(document).ready(function(){
+        $("#myBtn").click(function(){
+            $("#myModal1").modal();
+        });
+    });   
+
+    $(document).ready(function(){
+        $("#myBtn").click(function(){
+            $("#myModal2").modal();
+        });
+    }); 
+
+    $(document).ready(function(){
+        $("#myBtn").click(function(){
+            $("#myModal3").modal();
+        });
+    });       
+
+</script>
+
+
+    </script>
+
+    <style>
+        .jumbotron {
+            text-align: left;
+            margin-bottom: 0;
+            margin-left: auto;
+            margin-right: auto;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-left: 30px;
+            padding-right: 30px;
+            background: #006400; /* For browsers that do not support gradients */
+            background: -webkit-linear-gradient(#006400, #9ACD32); /* For Safari 5.1 to 6.0 */
+            background: -o-linear-gradient(#006400, #9ACD32); /* For Opera 11.1 to 12.0 */
+            background: -moz-linear-gradient(#006400, #9ACD32); /* For Firefox 3.6 to 15 */
+            background: linear-gradient(#006400, #9ACD32); /* Standard syntax (must be last) */
+        }
+
+        .panel-footer {
+             background-color: #d7e8d2;
+             padding: 45px 0 30px;
+             border: none;
+             border-top-right-radius: 0 !important; 
+             border-top-left-radius: 0 !important;               
+             border-bottom-right-radius: 0 !important; 
+             border-bottom-left-radius: 0 !important;  
+             padding: 25px 30px;                       
+        }
+
+        .panel-footer h2 {
+            text-align: center;
+            font-size: 25px;
+            color: #238E68 !important;
+        }
+
+        .container-fluid {
+            padding-right: 0 !important;
+            padding-left: 0 !important;
+        }       
+
+        h1 a {
+            color: #ffffff !important;
+            font-size: 50px !important;
+            font-weight: bold;
+            margin-top: 10px;
+            text-decoration: none !important;
+        }
+
+        h2 {
+            color: #DCDCDC !important;
+            font-size: 25px !important;
+            font-weight: bold;
+        }
+
+         h3 {
+            color: #00008B !important;
+            font-weight: bold;
+            font-size: 20px;
+            margin-top: 30px;
+        }       
+
+        h4 {
+            color: #238E68 !important;
+            text-align: center;
+            font-size: 30px;
+            margin-bottom:20px;
+        }
+
+       .modal-header {
+            padding: 15px 30px !important;
+        }
+
+        .modal-header .close {
+            margin-top: 4px;
+        }
+
+        .logo {
+            float: left;
+        }
+
+        .btnacesso {
+            margin-left: 30px;
+            padding-left: 50px;
+        }
+
+        .btnacesso .glyphicon-briefcase {
+            float: left;
+            margin-top: 18px;
+            margin-right: 3px;
+            color: #DCDCDC !important;
+        }
+
+        .btnacesso button, .btn-link {
+            margin-left: -10px;
+            color: #DCDCDC !important;
+            text-decoration: none !important;
+        }
+
+        .user {
+            padding-top: 80px;
+            margin-bottom: 10px;
+            float: right;
+        }
+
+
+        p {
+            float: left;
+            font-size: 18px;
+        }
+
+        p.resposta, input{
+            margin-top: 6px;
+        } 
+
+        label {
+            margin-top: 10px;
+        }
+
+        .form-horizontal .control-label {
+            text-align: left;
+        }
+
+        .carousel-caption p {
+            text-align: center;            
+        } 
+
+        .thumbnail {
+            border: none !important;
+        } 
+
+        .tiposCartoes {
+            float: left;
+            margin-bottom: 30px;
+        }
+
+        .tiposCartoes p {
+            float: left;
+            font-size: 18px;
+        } 
+
+       .foto {
+            margin: 10px 0 20px !important;
+        }
+
+        a .imgfoto{
+            font-size: 16px !important;
+            margin: 30px 22px !important;
+        }
+
+        .modal-header, h4, .close {
+            color: #5cb85c !important;
+            text-align: center;
+            font-size:40px !important;
+            font-weight: bold;
+        }
+
+        .modal-footer {
+            background-color: #f9f9f9;
+        }
+
+        .form-group {
+            margin-bottom: 0;
+        }
+
+        .form-group .lblfoto {
+            margin: 80px 0 0 20px;
+            text-align: right;
+        }
+
+        .btn-default {
+            margin-top:10px !important;
+        } 
+
+        .circle {
+            border-radius:100%;
+            border:3px solid #213543;
+            width:150px;
+            height:150px;
+            background-color: whitesmoke;
+            margin: 20px 10px -8px;
+        }
+
+        .footer {
+            float: left;
+            margin: 10px 0 20px;
+        }
+
+        button {
+            margin: 10px 2px;
+        }
+
+        .form-horizontal .has-feedback .form-control-feedback {
+            top: 5px;
+        }
+
+
+    </style>
+
+    </script>
+    <script src="assets/scripts/angular.js"></script>
+    <script>
+        angular.module("cartaoDeCredito", []);
+        angular.module("cartaoDeCredito").controller("cartaoDeCreditoCtrl", function ($scope){
+            $scope.app = "GreenCard";
+            $scope.btnContinuar = function (efetuarLogin) {
+                delete $scope.efetuarLogin;
+            }
+        });
+    </script>
+
+</head>
+<body ng-controller="cartaoDeCreditoCtrl">
+
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="logo col-md-6">
+                <h1><a href="../orb-lp-front%20/orb_index.html">{{app}}</a></h1>    
+                <h2>O seu cartāo para todos os momentos!!!</h2>
+            </div>
+            <div class="user col-md-3">
+                <div class="btnacesso btn-group">
+                    <span><i class="glyphicon glyphicon-briefcase"></i></span>
+                    <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+                        Meus cartões <span class="caret"></span></button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="../orb-lp-front%20/orb_incluirCartao.html" data-toggle="modal">Incluir cartāo</a></li>
+                        <li><a href="../orb-lp-front%20/orb_consultarCartao.html">Consultar cartões</a></li>
+                        <li><a href="../orb-lp-front%20/orb_extratoCartoes.html" data-toggle="modal">Consultar extrato dos cartões</a></li>
+                        <li><a href="../orb-lp-front%20/orb_estabelecimentos.html" data-toggle="modal">Estabelecimentos</a></li>                     
+                    </ul>
+                </div>                  
+            </div>
+        </div>
+    </div>
+</div> 
+
+<div class="container">
+  <h3>Fulano de Tal, atualize seu Cadastro!</h3>
+    <div class="tiposCartoes">
+        <p>Os cartões GreenCard, oferecerem produtos, ideias, inovação e experiências é o que constrói nossa história. Escolha o seu!</p>
+    </div>
+    
+        <div class="col-md-6"> 
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label col-sm-3" for="nome">Nome:</label>
+                        <div class="col-sm-5">
+                            <p class="resposta form-control-static">fulano de tal</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-3" for="cpf">CPF:</label>
+                        <div class="col-sm-5">
+                            <p class="resposta form-control-static">12345678901</p>
+                        </div>
+                    </div>
+                    <div class="form-group has-success has-feedback">
+                        <label class="control-label col-sm-3" for="senha">Nova senha:</label>
+                        <div class="col-sm-7">
+                            <input class="resposta form-control" type="password" id="novasenha" placeholder="nova senha">
+                            <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                        </div>
+                    </div>
+                    <div class="form-group has-success has-feedback">
+                        <label class="control-label col-sm-3" for="email">E-mail:</label>
+                        <div class="col-sm-7">
+                            <input class="resposta form-control" type="text" id="email" placeholder="email">
+                            <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                        </div>
+                    </div>
+                    <div class="form-group has-success has-feedback">
+                        <label class="control-label col-sm-3" for="telefone">Telefone:</label>
+                        <div class="col-sm-7">
+                            <input class="resposta form-control" type="text" id="telefone" placeholder="telefone">
+                            <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                        </div>
+                    </div>
+            </div>
+            <div class="col-md-4">
+                <form>
+                    <div class="form-group foto">
+                        <label class="control-label col-sm-5 lblfoto" for="Foto">Inclua sua foto:</label>
+                        <div class="col-sm-9 circle">
+                            <a href=""><img class="imgfoto" src="assets/img/camera.png" height="70" width="70" border="0" alt="incluir fotografia"></a>
+                        </div>   
+                    </div>
+                 </form>
+            </div> 
+
+            <div class="footer col-sm-12">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-success">Enviar</button>
+            </div>             
+</div>
+
+<div class="container-fluid">
+    <div class="panel panel-default">
+        <div class="panel-footer">
+            <h2>GreenCard Cartões</h2>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

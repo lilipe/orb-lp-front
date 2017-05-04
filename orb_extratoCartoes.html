@@ -1,0 +1,385 @@
+<html ng-app="cartaoDeCredito">
+<head>
+    <title>GreenCard</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type"text/css" href="assets/styles/bootstrap.css">
+    <script src="assets/scripts/jquery.min.js"></script>
+    <script src="assets/scripts/bootstrap.min.js"></script> 
+    <script src="assets/scripts/angular.min.js"></script> 
+
+    <script>
+    $(document).ready(function(){
+        $("#myBtn").click(function(){
+            $("#myModal").modal();
+        });
+    });
+
+    $(document).ready(function(){
+        $("#myBtn").click(function(){
+            $("#myModal1").modal();
+        });
+    });
+    </script>
+
+    <style>
+        .jumbotron {
+            text-align: left;
+            margin-bottom: 0;
+            margin-left: auto;
+            margin-right: auto;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-left: 30px;
+            padding-right: 30px;
+            background: #006400; /* For browsers that do not support gradients */
+            background: -webkit-linear-gradient(#006400, #9ACD32); /* For Safari 5.1 to 6.0 */
+            background: -o-linear-gradient(#006400, #9ACD32); /* For Opera 11.1 to 12.0 */
+            background: -moz-linear-gradient(#006400, #9ACD32); /* For Firefox 3.6 to 15 */
+            background: linear-gradient(#006400, #9ACD32); /* Standard syntax (must be last) */
+        }
+
+        .panel-footer {
+             background-color: #d7e8d2;
+             padding: 45px 0 30px;
+             border: none;
+             border-top-right-radius: 0 !important; 
+             border-top-left-radius: 0 !important;               
+             border-bottom-right-radius: 0 !important; 
+             border-bottom-left-radius: 0 !important;  
+             padding: 25px 30px;                       
+        }
+
+        .panel-footer h2 {
+            text-align: center;
+            font-size: 25px;
+            color: #238E68 !important;
+        }
+
+        .container-fluid {
+            padding-right: 0 !important;
+            padding-left: 0 !important;
+        }       
+
+        h1 a {
+            color: #ffffff !important;
+            font-size: 50px !important;
+            font-weight: bold;
+            margin-top: 10px;
+            text-decoration: none !important;
+        }
+
+        h2 {
+            color: #DCDCDC !important;
+            font-size: 25px !important;
+            font-weight: bold;
+        }
+
+         h3 {
+            color: #00008B !important;
+            font-weight: bold;
+            font-size: 20px;
+            margin-top: 30px;
+        }       
+
+        h4 {
+            color: #238E68 !important;
+            font-weight: bold;
+            text-align: center;
+            font-size: 25px;
+            margin-top: 20px;
+            margin-bottom:5px;
+            border: 1px solid #DCDCDC;
+        }
+
+      .modal-header {
+            padding: 15px 30px !important;
+        }
+
+        .modal-header .close {
+            margin-top: 4px;
+        }
+
+        .logo {
+            float: left;
+        }
+
+        .btnacesso {
+            margin-left: 30px;
+            padding-left: 50px;
+        }
+
+        .btnacesso .glyphicon-briefcase {
+            float: left;
+            margin-top: 8px;
+            margin-right: 3px;
+            color: #DCDCDC !important;
+        }
+
+        .btnacesso button, .btn-link {
+            margin-left: -10px;
+            color: #DCDCDC !important;
+            text-decoration: none !important;
+        }
+
+        .user {
+            padding-top: 80px;
+            margin-bottom: 10px;
+            float: right;
+        }       
+
+        p {
+            font-size: 16px !important;
+            margin: 10px 0 !important;
+        }       
+
+        p a {
+            font-size: 15px;
+            font-weight: bold;
+            color: #00adef;
+        }
+
+        .consultaSaldo p{
+          text-align: left;  
+          margin: 0 !important;
+        }
+
+        h2 .nomeCliente {
+            font-size: 20px !important;
+            margin: 10px 0 !important;
+            text-align: left;
+        } 
+
+        h4.nomeCliente {
+            color: #000099 !important;
+            font-weight: bold;
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 15px;
+            
+        } 
+
+        .btn-default {
+            margin-top:10px !important;
+        } 
+
+        .resultadoCartoes {
+            padding-top: 18px !important;
+        }
+
+        .executarCartao {
+            float: right !important;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
+
+        .executarCartao p {
+            text-align: left !important;
+        }
+
+        .blCheckbox {
+            margin-right: 15px;
+        }
+
+        .btnExecutar {
+            float: right !important;
+        }
+
+        .btnPopUp {
+            margin-top: 0 !important;
+        }
+
+        .footer {
+            margin-top: 10px;
+            margin-bottom: 20px;
+            float: right;
+        }
+
+
+    </style>
+    </script>
+    <script src="assets/scripts/angular.js"></script>
+    <script>
+        angular.module("cartaoDeCredito", []);
+        angular.module("cartaoDeCredito").controller("cartaoDeCreditoCtrl", function ($scope){
+            $scope.app = "GreenCard";
+            $scope.cartoes = [
+                {data: "23/04/2017", descricao: "Lanchonete XYZ", tipo: "Refeição", valor:"R$ 30,23"},
+                {data: "04/02/2017", descricao: "Mercado do Bem", tipo: "Alimentação", valor:"R$ 7,78"},
+                {data: "30/01/2017", descricao: "Lojas Amor", tipo: "Múltiplo", valor:"R$ 256,47"},
+            ];
+            $scope.extratoCartoes = function (cartao) {
+                $scope.cartoes.push(angular.copy(cartao));
+                delete $scope.cartao;
+            }
+        });
+        </script>
+
+</head>
+<body ng-controller="cartaoDeCreditoCtrl">
+
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="logo col-md-6">
+                <h1><a href="../orb-lp-front%20/orb_index.html">{{app}}</a></h1>      
+                <h2>O seu cartāo para todos os momentos!!!</h2>
+            </div>
+            <div class="user col-md-3">
+                <div class="btnacesso btn-group">
+                    <span><i class="glyphicon glyphicon-briefcase"></i></span>
+                    <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+                        Meus cartões <span class="caret"></span></button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="../orb-lp-front%20/orb_incluirCartao.html" data-toggle="modal">Incluir cartāo</a></li>
+                        <li><a href="../orb-lp-front%20/orb_consultarCartao.html">Consultar cartões</a></li>
+                        <li><a href="../orb-lp-front%20/orb_extratoCartoes.html" data-toggle="modal">Consultar extrato dos cartões</a></li>
+                        <li><a href="../orb-lp-front%20/orb_estabelecimentos.html" data-toggle="modal">Estabelecimentos</a></li>                     
+                    </ul>
+                </div>                  
+            </div>
+        </div>
+    </div>
+</div>    
+
+<div class="container">
+    <div class="col-sm-12 col-md-12">
+        <h3>Fulano de Tal, segue o extrato de uso dos seus cartões GreenCard</h3>
+            <h4>4567.XXXX.XXXX.5432</h4>
+            <table class="table table-striped">
+                <tr>
+                    <th>Data</th>
+                    <th>Descrição </th>
+                    <th>Tipo</th>
+                    <th>Valor</th>
+                </tr>
+                <tr ng-repeat="cartao in cartoes">
+                    <td class="extratoCartoes">{{cartao.data}}</td>
+                    <td class="extratoCartoes">{{cartao.descricao}}</td>
+                    <td class="extratoCartoes">{{cartao.tipo}}</td>
+                    <td class="extratoCartoes">{{cartao.valor}}</td>   
+                </tr>
+            </table>
+            <h4 class="nomeCliente">Saldo: R$ 764,90</h4>
+            <hr style="height:1px; border:none; color:#d5d5d5; background-color:#d5d5d5; margin-top: 0px; margin-bottom: 0px;"/>
+
+            <h4>4567.XXXX.XXXX.5432</h4>
+            <table class="table table-striped">
+                <tr>
+                    <th>Data</th>
+                    <th>Descrição </th>
+                    <th>Tipo</th>
+                    <th>Valor</th>
+                </tr>
+                <tr ng-repeat="cartao in cartoes">
+                    <td class="extratoCartoes">{{cartao.data}}</td>
+                    <td class="extratoCartoes">{{cartao.descricao}}</td>
+                    <td class="extratoCartoes">{{cartao.tipo}}</td>
+                    <td class="extratoCartoes">{{cartao.valor}}</td>   
+                </tr>
+            </table>
+            <h4 class="nomeCliente">Saldo: R$ 764,90</h4>
+            <hr style="height:1px; border:none; color:#d5d5d5; background-color:#d5d5d5; margin-top: 0px; margin-bottom: 0px;"/>
+
+            <h4>4567.XXXX.XXXX.5432</h4>
+            <table class="table table-striped">
+                <tr>
+                    <th>Data</th>
+                    <th>Descrição </th>
+                    <th>Tipo</th>
+                    <th>Valor</th>
+                </tr>
+                <tr ng-repeat="cartao in cartoes">
+                    <td class="extratoCartoes">{{cartao.data}}</td>
+                    <td class="extratoCartoes">{{cartao.descricao}}</td>
+                    <td class="extratoCartoes">{{cartao.tipo}}</td>
+                    <td class="extratoCartoes">{{cartao.valor}}</td>   
+                </tr>
+            </table>
+            <h4 class="nomeCliente">Saldo: R$ 764,90</h4>
+            <hr style="height:1px; border:none; color:#d5d5d5; background-color:#d5d5d5; margin-top: 0px; margin-bottom: 0px;"/>
+             
+            <div class="footer">
+                <!--<p><a data-toggle="modal" href="#myModal">consultar saldo</a></p>-->
+                <button type="button" class="btn btn-info btn btnExecutar" data-toggle="modal" data-target="#myModal1">Executar Cartão</button>       
+            </div>
+
+                <!-- Modal Saldo do Cartao-->
+                    <div class="modal fade" id="myModal" role="dialog">
+                        <div class="modal-dialog">
+                        
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                            
+                                <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="exampleModalLabel">Consulta de Saldo</h4>
+
+                                </div>
+                                <div class="modal-body" style="padding:40px 50px;">
+                                    <form class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-2" for="cartao">Cartão:</label>
+                                            <div class="consultaSaldo col-sm-10">
+                                                <p class="form-control-static">4567.XXXX.XXXX.5432</p>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-2" for="saldo">Saldo:</label>
+                                            <div class="consultaSaldo  col-sm-10">
+                                                <p class="form-control-static">R$ 367,25</p>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>  
+
+                    <!-- Modal Executar Cartao-->
+                    <div class="modal fade" id="myModal1" role="dialog">
+                        <div class="modal-dialog">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title" style="border:none;">Escolher</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <label class="checkbox-inline blCheckbox">
+                                            <input type="checkbox" value="">Bloquear
+                                        </label>
+                                        <label class="checkbox-inline blCheckbox">
+                                            <input type="checkbox" value="" disabled>Desbloquear
+                                        </label>
+                                        <label class="checkbox-inline blCheckbox">
+                                            <input type="checkbox" value="">Excluir
+                                        </label>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default btnPopUp" data-dismiss="modal">Fechar</button>
+                                    <button class="btn btn-success btnPopUp">Enviar</button>
+                                </div>
+                            </div>
+                        
+                        </div>
+                    </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="panel panel-default">
+        <div class="panel-footer">
+            <h2>GreenCard Cartões</h2>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
